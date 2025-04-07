@@ -262,13 +262,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development: Surabhi Kamlakar Purohit (99VZZG6927)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Surabhi Kamlakar Purohit (99VZZG6927)";
+				CODE_SIGN_IDENTITY = "Apple Development: Gulshan Khandale (DWSFY2JLL4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Gulshan Khandale (DWSFY2JLL4)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"codeongo/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = Z8AJ9LGK9F;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = DBB2HXYMS7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = codeongo/Info.plist;
@@ -284,10 +284,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiw.codeongo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ilomatechnology.fitnessmaaadmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_12march2025_codeonthego;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_fitnessmaa_admin_05032025;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -304,13 +304,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Distribution: Surabhi Kamlakar Purohit (Z8AJ9LGK9F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Surabhi Kamlakar Purohit (Z8AJ9LGK9F)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: iLoma Technology Private Limited (DBB2HXYMS7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: iLoma Technology Private Limited (DBB2HXYMS7)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"codeongo/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = Z8AJ9LGK9F;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = DBB2HXYMS7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = codeongo/Info.plist;
@@ -326,10 +326,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiw.codeongo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ilomatechnology.fitnessmaaadmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = appstore_12march2025_codeonthego;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = appstore_fitnessmaa_admin_07042025;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
