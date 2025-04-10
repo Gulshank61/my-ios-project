@@ -1,17 +1,15 @@
 import SwiftUI
 
 struct TileView: View {
-    @Binding var tile: TileState
-    var action: () -> Void
+    @Binding var tileState: TileState
     
     var body: some View {
-        Button(action: action) {
-            ZStack {
-                Color.white
-                tile.image?.resizable()
-            }
+        Button(action: {
+            tileState.toggle()
+        }) {
+            Image(uiImage: tileState.image)
+                .resizable()
+                .scaledToFit()
         }
-        .frame(width: 100, height: 100)
-        .buttonStyle(.borderless)
     }
 }
