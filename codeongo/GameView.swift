@@ -1,21 +1,55 @@
 import SwiftUI
 
 struct GameView: View {
-    @StateObject var gameModel = GameModel()
+    @State private var carPosition: CGFloat = 0.5 // Middle of the screen
+    private let moveAmount: CGFloat = 0.1
     
     var body: some View {
-        VStack(spacing: 10) {
-            ForEach(0..<3, id: \.self) { row in
-                HStack(spacing: 10) {
-                    ForEach(0..<3, id: \.self) { column in
-                        GameTileView(tileState: $gameModel.tiles[row][column])
+        GeometryReader { geometry in
+            VStack {
+                Spacer()
+                
+                CarView()
+                    .frame(width: 64, height: 64)
+                    .position(x: geometry.size.width * carPosition, y: geometry.size.height * 0.8)
+                
+                Spacer()
+                
+                HStack {
+                    Button(action: {
+                        moveCar(toLeft: true)
+                    }) {
+                        Text("<")
+                            .font(.largeTitle)
+                            .frame(width: 64, height: 64)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .clipShape(Circle())
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        moveCar(toLeft: false)
+                    }) {
+                        Text(">")
+                            .font(.largeTitle)
+                            .frame(width: 64, height: 64)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .clipShape(Circle())
                     }
                 }
+                .padding()
             }
-            Button("Restart Game") {
-                gameModel.restartGame()
-            }
-            .padding()
+        }
+    }
+    
+    func moveCar(toLeft: Bool) {
+        if toLeft {
+            carPosition = max(0, carPosition - moveAmount)
+        } else {
+            carPosition = min(1, carPosition + moveAmount)
         }
     }
 }
