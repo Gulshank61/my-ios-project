@@ -2,16 +2,24 @@ import SwiftUI
 
 struct GameTileView: View {
     @Binding var tileState: TileState
-    
+
     var body: some View {
         Button(action: {
-            tileState = tileState.next()
+            if tileState == .empty {
+                tileState = .x
+            } else if tileState == .x {
+                tileState = .o
+            } else {
+                tileState = .empty
+            }
         }) {
-            Image(tileState.imageName)
+            Image(systemName: tileState.imageName)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
                 .frame(width: 100, height: 100)
         }
         .buttonStyle(PlainButtonStyle())
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
     }
 }
