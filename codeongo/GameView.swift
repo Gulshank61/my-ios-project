@@ -1,24 +1,21 @@
 import SwiftUI
 
 struct GameView: View {
-    @StateObject private var viewModel = GameViewModel()
+    @StateObject var gameModel = GameModel()
     
     var body: some View {
         VStack(spacing: 10) {
             ForEach(0..<3, id: \.self) { row in
                 HStack(spacing: 10) {
                     ForEach(0..<3, id: \.self) { column in
-                        TileView(tileState: $viewModel.tiles[row][column])
-                            .frame(width: 100, height: 100)
-                            .background(Color.gray.opacity(0.5))
-                            .cornerRadius(10)
+                        GameTileView(tileState: $gameModel.tiles[row][column])
                     }
                 }
             }
             Button("Restart Game") {
-                viewModel.resetGame()
+                gameModel.restartGame()
             }
+            .padding()
         }
-        .padding()
     }
 }
