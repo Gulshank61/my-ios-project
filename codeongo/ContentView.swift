@@ -1,30 +1,40 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var game: GameModel
-    
+    @State private var email: String = ""
+    @State private var password: String = ""
+
     var body: some View {
-        VStack {
-            Text("Tic Tac Toe")
-                .font(.largeTitle)
-                .padding()
-            
-            ForEach(0..<3) { row in
-                HStack {
-                    ForEach(0..<3) { column in
-                        TileView(state: self.$game.board[row][column])
-                    }
+        NavigationView {
+            VStack {
+                TextField("Email", text: $email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+
+                SecureField("Password", text: $password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+
+                Button("Log In") {
+                    // Handle login logic here
                 }
+                .buttonStyle(RoundedRectangleButtonStyle())
+                .padding()
+
+                Spacer()
             }
-            
-            if let winner = game.checkForWinner() {
-                Text("\(winner) wins!")
-                  .padding()
-                  .font(.headline)
-                  .onAppear {
-                    game.resetGame()
-                  }
-            }
+            .navigationTitle("Login")
         }
+    }
+}
+
+struct RoundedRectangleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
     }
 }
