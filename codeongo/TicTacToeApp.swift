@@ -1,10 +1,10 @@
 import SwiftUI
 
 @main
-struct CarRacingApp: App {
+struct TicTacToeApp: App {
     var body: some Scene {
         WindowGroup {
-            GameView()
+            ContentView(game: GameModel())
         }
     }
 }
