@@ -1,12 +1,4 @@
-import SwiftUI
-
-enum Player {
-    case x, o
-}
-
-enum TileState {
-    case empty, occupied(Player)
-}
+import Foundation
 
 class GameModel: ObservableObject {
     @Published var board: [[TileState]] = [
@@ -14,21 +6,31 @@ class GameModel: ObservableObject {
         [.empty, .empty, .empty],
         [.empty, .empty, .empty]
     ]
+    @Published var currentPlayer: Player = .x
+
+    enum Player: String {
+        case x = "X"
+        case o = "O"
+    }
     
-    var currentPlayer: Player = .x
-    
-    func makeMove(at row: Int, _ column: Int) {
-        if board[row][column] == .empty {
-            board[row][column] = .occupied(currentPlayer)
-            currentPlayer = (currentPlayer == .x) ? .o : .x
-        }
+    func choose(_ row: Int, _ col: Int) {
+        guard board[row][col] == .empty else { return }
+        board[row][col] = (currentPlayer == .x) ? .x : .o
+        currentPlayer = (currentPlayer == .x) ? .o : .x
     }
     
     func resetGame() {
-        for row in 0..<board.count {
-            for column in 0..<board[0].count {
-                board[row][column] = .empty
+        for row in 0..<3 {
+            for col in 0..<3 {
+                board[row][col] = .empty
             }
         }
+        currentPlayer = .x
     }
+}
+
+enum TileState: Equatable {
+    case empty
+    case x
+    case o
 }
