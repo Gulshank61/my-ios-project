@@ -2,10 +2,11 @@ import SwiftUI
 
 @main
 struct TicTacToeApp: App {
+    @StateObject private var featureActionButtonHandler = FeatureButtonActionHandler()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(FeatureButtonActionHandler())
+            ContentView(featureActionButtonHandler: featureActionButtonHandler)
         }
     }
 }
