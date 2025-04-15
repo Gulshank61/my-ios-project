@@ -3,12 +3,21 @@ import SwiftUI
 struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    @StateObject private var handler = FeatureButtonActionHandler()
 
     var body: some View {
         VStack(spacing: 20) {
             Text("Welcome Back")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
+            
+            Button("Pay Now") {
+                handler.makePayment()
+            }
+            
+            Button("Pay Now") {
+                handler.sendEmail()
+            }
             
             TextField("Email", text: $email)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -34,6 +43,9 @@ struct LoginView: View {
             Spacer()
         }
         .padding()
+        .alert(isPresented: $handler.showAlert) {
+            Alert(title: Text("Payment"), message: Text(handler.alertMessage), dismissButton: .default(Text("OK")))
+        }
     }
 }
 
