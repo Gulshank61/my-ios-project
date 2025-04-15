@@ -18,6 +18,9 @@ class FeatureButtonActionHandler: ObservableObject {
     private var paymentSheet: PaymentSheet?
 
     func makePayment() {
+        
+        STPAPIClient.shared.publishableKey = "pk_test_51RD31BQS2ty2ER6UX14lA2ph6dbDi710ZgmkbGIifRu0fM5BaRasRiKOSo6gXfmeh3FclB0YXmXqmy1bXj5ZLN4g00ODb5Ggi3"
+        
         guard let url = URL(string: "https://api.aipocdev.ilserver.cloud/api/v1/payment/create-payment-intent") else {
             alertMessage = "Invalid backend URL."
             showAlert = true
@@ -89,6 +92,7 @@ class FeatureButtonActionHandler: ObservableObject {
                 case .canceled:
                     self.alertMessage = "Payment canceled."
                 case .failed(let error):
+                    debugPrint(error);
                     self.alertMessage = "Payment failed: \(error.localizedDescription)"
                 }
                 self.showAlert = true
