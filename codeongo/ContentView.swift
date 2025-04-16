@@ -1,39 +1,39 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = GameViewModel()
-
+    @State private var email: String = ""
+    @State private var password: String = ""
+    
     var body: some View {
-        VStack {
-            Text("Tic Tac Toe")
-                .font(.largeTitle)
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 15), count: 3), spacing: 15) {
-                ForEach(0..<9) { index in
-                    GameSquareView(player: $viewModel.squares[index])
-                        .frame(width: 90, height: 90)
-                        .background(viewModel.squares[index] == .none ? Color.gray.opacity(0.5) : Color.clear)
-                        .cornerRadius(8)
-                        .onTapGesture {
-                            viewModel.processPlayerMove(for: index)
-                        }
+        NavigationView {
+            VStack(spacing: 20) {
+                TextField("Email", text: $email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
+                
+                SecureField("Password", text: $password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Button("Login") {
+                    // Perform login action here
                 }
+                .buttonStyle(RoundedRectangleButtonStyle())
+                
+                Spacer()
             }
             .padding()
-            .disabled(viewModel.isGameboardDisabled)
+            .navigationTitle("Login")
+        }
+    }
+}
 
-            Button(action: viewModel.resetGame) {
-                Text("New Game")
-                    .bold()
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
+struct RoundedRectangleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
             .padding()
-        }
-        .alert(isPresented: $viewModel.alertIsVisible) {
-            Alert(title: Text("Game Over"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("Reset"), action: viewModel.resetGame))
-        }
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

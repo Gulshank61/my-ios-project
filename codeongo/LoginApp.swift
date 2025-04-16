@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct TicTacToeApp: App {
+struct LoginApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
